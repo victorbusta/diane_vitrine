@@ -41,21 +41,21 @@ const closeModal = async () => {
   modalOpened.value = false;
 }
 
-// const keyframes = [
-//         { opacity: 0, transform: 'translateY(100%)' },
-//         { opacity: 1, transform: 'translateY(0)' }
-//       ];
+const keyframes = [
+        { opacity: 0, transform: 'translateY(100%)' },
+        { opacity: 1, transform: 'translateY(0)' }
+      ];
 
-// const showImg = (e: Event, printId: number) => {
-//   const parent: HTMLElement | null = (e.target as HTMLElement).parentElement;
-//   parent?.animate(keyframes, {
-//         duration: 500,
-//         fill: 'forwards',
-//         delay: 100 * printId,
-//         easing: 'ease',
-//         iterations: 1,
-//       });
-// }
+const showImg = (e: Event, printId: number) => {
+  const parent: HTMLElement | null = (e.target as HTMLElement).parentElement;
+  parent?.animate(keyframes, {
+        duration: 500,
+        fill: 'forwards',
+        delay: 100 * printId,
+        easing: 'ease',
+        iterations: 1,
+      });
+}
 
 </script>
 
@@ -64,16 +64,13 @@ const closeModal = async () => {
 
     <div class="image-gallery">
       <div v-for="print in evenPrints()" :key="print.id" class="image-container" @click="showModal(print)" >
-        <img id="img" :src="print.documentUrl" v-img-lazy>
-        <!-- <img id="img" :src="print.documentUrl" @load="$e => showImg($e, print.id)"> -->
+        <img id="img" :src="print.documentUrl" @load="$e => showImg($e, print.id)" v-img-lazy>
       </div>
     </div>
 
     <div class="image-gallery">
       <div v-for="print in oddPrints()" :key="print.id" class="image-container" @click="showModal(print)" >
-        <img id="img" :src="print.documentUrl" v-img-lazy>
-
-        <!-- <img id="img" :src="print.documentUrl" @load="$e => showImg($e, print.id)"> -->
+        <img id="img" :src="print.documentUrl" @load="$e => showImg($e, print.id)" v-img-lazy>
       </div>
     </div> 
 
@@ -134,8 +131,8 @@ hr {
   width: 100%;
   height: fit-content;
   padding: 10px;
-  /* opacity: 0;
-  transform: translateY(100%); */
+  opacity: 0;
+  transform: translateY(100%);
 }
 
 @keyframes show {
