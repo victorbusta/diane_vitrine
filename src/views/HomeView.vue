@@ -6,6 +6,7 @@ import { ref } from 'vue';
 import { HTTP } from '@/http';
 import type { Print } from '@/interfaces/print';
 import * as anim from '@/utils.animation';
+import VLazyImage from "v-lazy-image";
 
 const prints = ref<Print[]>([]);
 const modalPrint = ref<Print>();
@@ -47,7 +48,9 @@ const keyframes = [
       ];
 
 const showImg = (e: Event, printId: number) => {
-  const parent: HTMLElement | null = (e.target as HTMLElement).parentElement;
+  console.log(printId);
+  
+  const parent = document.querySelector(`.image${printId}`);
   parent?.animate(keyframes, {
         duration: 500,
         fill: 'forwards',
@@ -63,14 +66,14 @@ const showImg = (e: Event, printId: number) => {
   <div class="wrapper" v-if="printsLoaded">
 
     <div class="image-gallery">
-      <div v-for="print in evenPrints()" :key="print.id" class="image-container" @click="showModal(print)" >
-        <img id="img" :src="print.documentUrl" @load="$e => showImg($e, print.id)" v-img-lazy>
+      <div v-for="print in evenPrints()" :key="print.id" :class="`image-container image${print.id}`" @click="showModal(print)" >
+        <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/>
       </div>
     </div>
 
     <div class="image-gallery">
-      <div v-for="print in oddPrints()" :key="print.id" class="image-container" @click="showModal(print)" >
-        <img id="img" :src="print.documentUrl" @load="$e => showImg($e, print.id)" v-img-lazy>
+      <div v-for="print in oddPrints()" :key="print.id" :class="`image-container image${print.id}`" @click="showModal(print)" >
+        <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/>
       </div>
     </div> 
 
