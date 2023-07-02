@@ -67,16 +67,13 @@ const showImg = (e: Event, printId: number) => {
 
     <div class="image-gallery">
       <div v-for="print in evenPrints()" :key="print.id" :class="`image-container image${print.id}`" @click="showModal(print)" >
-        <VLazyImage :src="print.documentUrl" :placeholder="print.documentUrl.replace('images', 'lite')" @load="($e: Event) => showImg($e, print.id)"/>
-        <!-- <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/> -->
-        </div>
+        <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/>
+      </div>
     </div>
 
     <div class="image-gallery">
       <div v-for="print in oddPrints()" :key="print.id" :class="`image-container image${print.id}`" @click="showModal(print)" >
-        <VLazyImage :src="print.documentUrl" :placeholder="print.documentUrl.replace('images', 'lite')" @load="($e: Event) => showImg($e, print.id)"/>
-
-        <!-- <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/> -->
+        <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/>
       </div>
     </div> 
 
@@ -140,6 +137,7 @@ hr {
   padding: 10px;
   opacity: 0;
   transform: translateY(100%);
+  transition: all 200ms ease-in-out;
 }
 
 @keyframes show {
