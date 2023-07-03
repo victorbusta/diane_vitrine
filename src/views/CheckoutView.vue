@@ -72,6 +72,8 @@ h1 {
   padding: 8px;
   font-size: var(--font-size-medium-medium);
   border: solid 1px var(--color-foreground);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
   width: fit-content;
   font-family: 'CopperPlate Goth';
 }
