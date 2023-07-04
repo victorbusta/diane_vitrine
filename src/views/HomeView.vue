@@ -43,7 +43,7 @@ const closeModal = async () => {
 }
 
 const keyframes = [
-        { opacity: 0, transform: 'translateY(100%)' },
+        { opacity: 0, transform: 'translateY(10%)' },
         { opacity: 1, transform: 'translateY(0)' }
       ];
 
@@ -58,6 +58,11 @@ const showImg = (e: Event, printId: number) => {
       });
 }
 
+const option = {
+    root: null, // Use the viewport as the root
+    rootMargin: "0px",
+    threshold: 0 // When at least 50% of the section is visible
+  }
 </script>
 
 <template>
@@ -65,13 +70,13 @@ const showImg = (e: Event, printId: number) => {
 
     <div class="image-gallery">
       <div v-for="print in evenPrints()" :key="print.id" :class="`image-container image${print.id}`" @click="showModal(print)" >
-        <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/>
+        <VLazyImage :src="print.documentUrl" :placeholder="print.documentUrl.replace('image', 'lite')" :intersection-options="option" @load="($e: Event) => showImg($e, print.id)"/>
       </div>
     </div>
 
     <div class="image-gallery">
       <div v-for="print in oddPrints()" :key="print.id" :class="`image-container image${print.id}`" @click="showModal(print)" >
-        <VLazyImage :src="print.documentUrl" @load="($e: Event) => showImg($e, print.id)"/>
+        <VLazyImage :src="print.documentUrl" :placeholder="print.documentUrl.replace('image', 'lite')" :intersection-options="option" @load="($e: Event) => showImg($e, print.id)"/>
       </div>
     </div> 
 
@@ -134,7 +139,7 @@ hr {
   height: fit-content;
   padding: 10px;
   opacity: 0;
-  transform: translateY(100%);
+  transform: translateY(10%);
   transition: all 200ms ease-in-out;
 }
 
