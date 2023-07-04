@@ -57,7 +57,16 @@ function handleSubmit() {
         <input :type="field.type" :id="field.id" v-model="field.value" :placeholder="field.label" required/>
         <hr>
       </div>
+
+      <input class="order" type="submit" value="Commander">
+
     </form>
+
+    <div class="bottomNav">
+      <RouterLink to="/checkout" class="back">
+        <ArrowIcon style="width: 32px; height: 32px;" />
+      </RouterLink>
+    </div>
 
   </div>
 
@@ -101,20 +110,6 @@ hr {
   opacity: .5;
 }
 
-.order {
-  height: fit-content;
-  width: fit-content;
-  color: var(--color-foreground);
-  padding: 8px;
-  font-size: var(--font-size-medium-medium);
-  border: solid 1px var(--color-foreground);
-  width: fit-content;
-}
-
-.order:hover {
-  color: var(--color-background);
-  background-color: var(--color-foreground);
-}
 
 form > div {
   display: flex;
@@ -122,15 +117,32 @@ form > div {
   margin: 8px 4px;
 }
 
-.bottomNav {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.order {
+  height: fit-content;
+  width: fit-content;
+  padding: 8px;
+  font-size: var(--font-size-medium-medium);
+  border: solid 1px var(--color-foreground);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  width: fit-content;
+  font-family: 'CopperPlate Goth';
+}
+
+.order:hover {
+  color: var(--color-background);
+  background-color: var(--color-foreground);
 }
 
 .back {
   position: absolute;
   left: 0;
+}
+.bottomNav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px 4px;
 }
 </style>

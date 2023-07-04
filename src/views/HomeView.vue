@@ -47,9 +47,7 @@ const keyframes = [
         { opacity: 1, transform: 'translateY(0)' }
       ];
 
-const showImg = (e: Event, printId: number) => {
-  console.log(printId);
-  
+const showImg = (e: Event, printId: number) => {  
   const parent = document.querySelector(`.image${printId}`);
   parent?.animate(keyframes, {
         duration: 500,
