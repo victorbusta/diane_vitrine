@@ -25,33 +25,33 @@ const order = ref();
 const orderSend = ref(false);
 const orderSending = ref(false);
 
-function handleSubmit() {
-  orderSending.value = true;
+// function handleSubmit() {
+//   orderSending.value = true;
 
-  let formData: any = {};
-  fields.value.forEach((field) => {
-    formData[field.id] = field.value;
-  });
+//   let formData: any = {};
+//   fields.value.forEach((field) => {
+//     formData[field.id] = field.value;
+//   });
 
-  formData = {...formData, ...{formats_id: []}}
+//   formData = {...formData, ...{formats_id: []}}
 
-  checkoutStore.prints.forEach(print => {
-    formData.formats_id.push(print.format.id);
-  });
+//   checkoutStore.prints.forEach(print => {
+//     formData.formats_id.push(print.format.id);
+//   });
 
-  HTTP.post(props.apiEndPoint, formData).then(res => {
-    order.value = res.data;
-    orderSend.value = true;
-  });
+//   HTTP.post(props.apiEndPoint, formData).then(res => {
+//     order.value = res.data;
+//     orderSend.value = true;
+//   });
 
-  checkoutStore.resetPrints();
-}
+//   checkoutStore.resetPrints();
+// }
 </script>
 
 <template>
 
   <div v-if="!orderSending && !orderSend" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
-  
+<!--   
     <form @submit.prevent="handleSubmit">
       <div class="formInput" v-for="field in fields" :key="field.id">
         <input :type="field.type" :id="field.id" v-model="field.value" :placeholder="field.label" required/>
@@ -60,7 +60,7 @@ function handleSubmit() {
 
       <input class="order" type="submit" value="Commander">
 
-    </form>
+    </form> -->
 
     <div class="bottomNav">
       <RouterLink to="/checkout" class="back">
