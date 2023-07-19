@@ -103,7 +103,7 @@ const addToCartForm = () => {
     height: 100vh;
     background-color: var(--color-background);
     transition: all .2s ease-in-out;
-    z-index: 1;
+    z-index: 3;
   }
 
   .infoClosed {

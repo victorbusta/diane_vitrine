@@ -13,6 +13,7 @@
     bottom: 0;
     right: 0;
     cursor: pointer;
+    z-index: 2;
   }
 
   #base {

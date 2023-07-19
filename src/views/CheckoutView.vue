@@ -80,7 +80,7 @@ const getTotalPrice = () => {
   </main>
 
   <footer>
-    <RouterLink id="arrow" to="/customer">
+    <RouterLink id="arrow" to="/">
       <ArrowIcon/>
     </RouterLink>
 
