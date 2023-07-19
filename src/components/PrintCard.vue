@@ -99,7 +99,7 @@ const addToCartForm = () => {
     position: absolute;
     right: 0;
     top: 0;
-    width: 50vw;
+    width: 100%;
     height: 100vh;
     background-color: var(--color-background);
     transition: all .2s ease-in-out;
