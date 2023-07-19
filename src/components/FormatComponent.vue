@@ -44,7 +44,7 @@ defineExpose({
       <div>
         <span>
           <h2>{{ format.size }}</h2>
-          <h2 id="price">prix: {{ format.price }} €</h2>
+          <h2 id="price">{{ format.price }} €</h2>
         </span>
 
         <span>
@@ -52,7 +52,7 @@ defineExpose({
             <h3>{{ format.size_frame }}</h3>
             <h4>avec cadre</h4>
           </span>
-          <h2 style="opacity: .6;" id="price">prix: {{ format.price_frame }} €</h2>
+          <h2 style="opacity: .6;" id="price">{{ format.price_frame }} €</h2>
         </span>
       </div>
 
@@ -124,6 +124,8 @@ defineExpose({
 
   #price {
     margin-left: 48px;
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 
   #selection {

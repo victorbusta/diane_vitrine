@@ -65,8 +65,8 @@ const getTotalPrice = () => {
               <option v-for="qty in format.original_qty" :key="qty" :value="qty" :selected="qty === getStored(format.format)?.qty">{{ qty }}</option>
             </select>
           </div>
-          <div>
-            <h4>Prix</h4>
+          <div class="price">
+            <h4>PRIX</h4>
             <h4>:</h4>
             <h4>{{ ref((format.with_frame ? format.format.price_frame : format.format.price) * format.qty) }}€</h4>
           </div>
@@ -74,7 +74,7 @@ const getTotalPrice = () => {
       </div>
     </div>
 
-    <div id="total-price">
+    <div id="total-price" class="price">
       <h1>Prix Total: {{ getTotalPrice() }} €</h1>
     </div>
   </main>
@@ -104,6 +104,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.price {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 #line {
